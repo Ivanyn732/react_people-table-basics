@@ -47,11 +47,7 @@ export const PeoplePage: React.FC = () => {
           )}
 
           {!isLoading && !error && people.length > 0 && (
-            <PersonTable
-              people={people}
-              selectedSlug={selectedSlug}
-              onSelectPerson={() => {}}
-            />
+            <PersonTable people={people} selectedSlug={selectedSlug} />
           )}
         </div>
       </div>

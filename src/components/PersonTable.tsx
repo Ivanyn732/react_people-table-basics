@@ -5,14 +5,9 @@ import { PersonLink } from './PersonLink';
 type Props = {
   people: Person[];
   selectedSlug?: string;
-  onSelectPerson?: (slug: string) => void;
 };
 
-export const PersonTable: React.FC<Props> = ({
-  selectedSlug,
-  people,
-  onSelectPerson,
-}) => {
+export const PersonTable: React.FC<Props> = ({ selectedSlug, people }) => {
   return (
     <table
       data-cy="peopleTable"
@@ -43,33 +38,21 @@ export const PersonTable: React.FC<Props> = ({
               }
             >
               <td>
-                <PersonLink
-                  name={person.name}
-                  person={person}
-                  onClick={() => onSelectPerson?.(person.slug)}
-                />
+                <PersonLink name={person.name} person={person} />
               </td>
               <td>{person.sex}</td>
               <td>{person.born}</td>
               <td>{person.died}</td>
               <td>
                 {mother ? (
-                  <PersonLink
-                    name={mother.name}
-                    person={mother}
-                    onClick={() => onSelectPerson?.(mother.slug)}
-                  />
+                  <PersonLink name={mother.name} person={mother} />
                 ) : (
                   person.motherName || '-'
                 )}
               </td>
               <td>
                 {father ? (
-                  <PersonLink
-                    name={father.name}
-                    person={father}
-                    onClick={() => onSelectPerson?.(father.slug)}
-                  />
+                  <PersonLink name={father.name} person={father} />
                 ) : (
                   person.fatherName || '-'
                 )}
